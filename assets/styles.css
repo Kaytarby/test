@@ -334,6 +334,7 @@ h2 {
 .site-header.is-scrolled {
   background: rgba(6, 9, 15, 0.78);
   border-bottom-color: var(--line);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   backdrop-filter: blur(18px) saturate(140%);
 }
 
@@ -521,10 +522,17 @@ h2 {
 
 .hero h1 em {
   font-style: normal;
-  background: linear-gradient(100deg, var(--mint-bright) 10%, #8ff5d1 45%, var(--blue) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--mint-bright);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero h1 em {
+    background: linear-gradient(100deg, var(--mint-bright) 10%, #8ff5d1 45%, var(--blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .lede {
@@ -2665,11 +2673,13 @@ input[type="range"]:active::-webkit-slider-thumb {
     align-items: stretch;
     gap: 0;
     width: min(86vw, 360px);
-    height: 100dvh;
     padding: 88px 24px 32px;
     border-left: 1px solid var(--line-strong);
     background: rgba(8, 13, 21, 0.98);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
+    height: 100vh;
+    height: 100dvh;
     transform: translateX(102%);
     transition: transform 0.4s var(--ease);
     overflow-y: auto;
