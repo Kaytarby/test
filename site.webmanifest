@@ -1,0 +1,19 @@
+{
+  "name": "ФинПульс — личные финансы под контролем",
+  "short_name": "ФинПульс",
+  "description": "Все счета в одной картине, умные бюджеты, цели и инвестиции.",
+  "lang": "ru",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06090F",
+  "theme_color": "#06090F",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ФинПульс — личные финансы под контролем</title>
+<meta name="description" content="ФинПульс собирает карты, вклады и инвестиции в одну картину: умные бюджеты, цели и накопления, аналитика расходов. Начните бесплатно.">
+<meta name="theme-color" content="#06090F">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ФинПульс — каждая копейка на своём месте">
+<meta property="og:description" content="Все счета в одной картине, умные бюджеты, цели и инвестиции. Личные финансы без таблиц и догадок.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14m-5.5-5.5L18.5 12 13 17.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7m0 0H8m9 0v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h10A2.5 2.5 0 0 1 19 8.5v.5h-3.5a2.5 2.5 0 0 0 0 5H19v.5a2.5 2.5 0 0 1-2.5 2.5h-10A2.5 2.5 0 0 1 4 14.5v-6Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M19 9h-3.2a1.8 1.8 0 0 0 0 3.6H19V9Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M5 7h9m3 0h2M5 12h3m3 0h8M5 17h8m3 0h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="16" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="15" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M4 16.5 9.5 11l3.5 3.5L20 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 7.5H20V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 5 6.2v5.4c0 4.2 2.9 7.4 7 8.9 4.1-1.5 7-4.7 7-8.9V6.2L12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pie" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5H12V3.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14.5 3.9A8.6 8.6 0 0 1 20.1 9.5H14.5V3.9Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m18.5 15.5.9 2.3 2.3.7-2.3.9-.9 2.3-.8-2.3-2.3-.9 2.3-.7.8-2.3Z" fill="currentColor"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.6 5.2 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.5 9.7l5.9-.9L12 3.6Z" fill="currentColor"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.5 6.5c-3 1.1-4.7 3.4-4.7 6.4v4.6h4.7v-4.7H7.2c0-1.7.9-2.9 2.9-3.7l-.6-2.6Zm9 0c-3 1.1-4.7 3.4-4.7 6.4v4.6h4.7v-4.7h-2.3c0-1.7.9-2.9 2.9-3.7l-.6-2.6Z" fill="currentColor"/></symbol>
+  <symbol id="i-down-left" viewBox="0 0 24 24"><path d="M17 7 7 17m0 0h7.5M7 17V9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7m0 0h-7.5M17 7v7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M6 9a5 5 0 0 1 5-5h6m-3-3 3 3-3 3M18 15a5 5 0 0 1-5 5H7m3 3-3-3 3-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 10V7.8a3.5 3.5 0 0 1 7 0V10" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></symbol>
+</svg>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="ФинПульс — на главную">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="presentation"><rect width="32" height="32" rx="10" fill="url(#brandGrad)"/><path d="M9 21.5V15m7 6.5V10m7 11.5v-9" stroke="#04130D" stroke-width="2.6" stroke-linecap="round"/><defs><linearGradient id="brandGrad" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#4BF0B4"/><stop offset="1" stop-color="#19C8A4"/></linearGradient></defs></svg>
+      </span>
+      <span class="brand-name">ФинПульс</span>
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Основная навигация">
+      <a href="#features">Возможности</a>
+      <a href="#how">Как работает</a>
+      <a href="#calc">Калькулятор</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+      <div class="nav-mobile-actions">
+        <a class="btn btn-secondary btn-block" href="#start">Войти</a>
+        <a class="btn btn-primary btn-block" href="#start">Начать бесплатно</a>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-login" href="#start">Войти</a>
+      <a class="btn btn-primary btn-sm" href="#start">Начать бесплатно</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primaryNav">
+        <svg class="icon-open" width="24" height="24" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon-close" width="24" height="24" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+</header>
+
+<div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal"><span class="pulse-dot" aria-hidden="true"></span>Личные финансы без таблиц и догадок</span>
+        <h1 class="reveal" style="--d:.06s">Каждая копейка —<br><em>на своём месте</em>.</h1>
+        <p class="lede reveal" style="--d:.12s">ФинПульс собирает карты, вклады и инвестиции в одну картину. Показывает, куда уходят деньги, и помогает накопить на важное — без аскезы и запретов.</p>
+
+        <div class="hero-cta reveal" style="--d:.18s">
+          <a class="btn btn-primary btn-lg" href="#start">
+            Начать бесплатно
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn-secondary btn-lg" href="#dashboard">
+            <span class="play-dot" aria-hidden="true"></span>
+            Посмотреть демо
+          </a>
+        </div>
+
+        <ul class="hero-points reveal" style="--d:.24s">
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Бесплатно навсегда</li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Только чтение, без переводов</li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>40+ банков</li>
+        </ul>
+
+        <div class="hero-trust reveal" style="--d:.3s">
+          <div class="avatar-stack" aria-hidden="true">
+            <span class="avatar avatar--1">АК</span>
+            <span class="avatar avatar--2">ДМ</span>
+            <span class="avatar avatar--3">МС</span>
+            <span class="avatar avatar--4">ИВ</span>
+          </div>
+          <div class="trust-copy">
+            <span class="stars" aria-label="Оценка 4,9 из 5">
+              <svg width="14" height="14"><use href="#i-star"/></svg>
+              <svg width="14" height="14"><use href="#i-star"/></svg>
+              <svg width="14" height="14"><use href="#i-star"/></svg>
+              <svg width="14" height="14"><use href="#i-star"/></svg>
+              <svg width="14" height="14"><use href="#i-star"/></svg>
+            </span>
+            <span><strong>4,9</strong> — 12 400+ отзывов · <strong>120 000</strong> пользователей</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" id="dashboard" style="--d:.15s">
+        <div class="app-window">
+          <div class="app-bar">
+            <span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="app-title">ФинПульс · Обзор</span>
+          </div>
+
+          <div class="app-body">
+            <div class="app-top">
+              <div>
+                <span class="app-label">Общий баланс</span>
+                <div class="app-balance">₽ 1 284 500</div>
+                <span class="delta delta--up">
+                  <svg width="13" height="13" aria-hidden="true"><use href="#i-up-right"/></svg>
+                  +12,4% за год
+                </span>
+              </div>
+              <div class="segmented" role="group" aria-label="Период графика">
+                <span>Нед</span><span>Мес</span><span class="is-active">Год</span>
+              </div>
+            </div>
+
+            <div class="chart-wrap">
+              <div class="chart-highlight" aria-hidden="true"></div>
+              <svg class="chart" viewBox="0 0 560 190" preserveAspectRatio="none" role="img" aria-label="График роста баланса за год: с 720 до 1284 тысяч рублей">
+                <defs>
+                  <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#37E9A8" stop-opacity=".38"/>
+                    <stop offset="55%" stop-color="#37E9A8" stop-opacity=".1"/>
+                    <stop offset="100%" stop-color="#37E9A8" stop-opacity="0"/>
+                  </linearGradient>
+                  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#19C8A4"/>
+                    <stop offset="60%" stop-color="#4BF0B4"/>
+                    <stop offset="100%" stop-color="#9BE8FF"/>
+                  </linearGradient>
+                </defs>
+                <g class="chart-grid" aria-hidden="true">
+                  <line x1="0" y1="40" x2="560" y2="40"/>
+                  <line x1="0" y1="90" x2="560" y2="90"/>
+                  <line x1="0" y1="140" x2="560" y2="140"/>
+                </g>
+                <path class="chart-area" d="M0 152 C28 146 44 150 62 142 C86 132 100 138 120 128 C144 116 158 122 180 110 C204 97 218 106 240 94 C264 81 278 88 300 76 C324 63 338 72 360 60 C384 47 398 56 420 45 C444 33 458 40 480 30 C504 19 522 26 544 16 C550 13 556 12 560 11 L560 190 L0 190 Z" fill="url(#areaFill)"/>
+                <path class="chart-line" d="M0 152 C28 146 44 150 62 142 C86 132 100 138 120 128 C144 116 158 122 180 110 C204 97 218 106 240 94 C264 81 278 88 300 76 C324 63 338 72 360 60 C384 47 398 56 420 45 C444 33 458 40 480 30 C504 19 522 26 544 16 C550 13 556 12 560 11" fill="none" stroke="url(#lineGrad)" stroke-width="2.6" stroke-linecap="round"/>
+                <circle class="chart-point-halo" cx="480" cy="30" r="8" fill="#37E9A8" opacity=".16"/>
+                <circle class="chart-point" cx="480" cy="30" r="3.6" fill="#EAFFF6" stroke="#37E9A8" stroke-width="2.2"/>
+              </svg>
+              <div class="chart-tooltip" aria-hidden="true">
+                <span>Октябрь</span>
+                <strong>₽ 1 202 300</strong>
+              </div>
+              <div class="chart-axis" aria-hidden="true">
+                <span>Янв</span><span>Мар</span><span>Май</span><span>Июл</span><span>Сен</span><span>Дек</span>
+              </div>
+            </div>
+
+            <div class="app-mini">
+              <div class="mini-card">
+                <span class="mini-label">Доходы</span>
+                <strong>248 000 ₽</strong>
+                <span class="mini-delta up">+8,1%</span>
+              </div>
+              <div class="mini-card">
+                <span class="mini-label">Расходы</span>
+                <strong>156 400 ₽</strong>
+                <span class="mini-delta down">−3,2%</span>
+              </div>
+              <div class="mini-card">
+                <span class="mini-label">Норма сбережений</span>
+                <strong>37%</strong>
+                <span class="mini-delta up">+4 п.п.</span>
+              </div>
+            </div>
+
+            <ul class="txns" aria-label="Последние операции">
+              <li class="txn">
+                <span class="txn-icon txn-icon--food"><svg width="17" height="17" aria-hidden="true"><use href="#i-down-left"/></svg></span>
+                <span class="txn-info"><strong>Пятёрочка</strong><small>Продукты · сегодня</small></span>
+                <span class="txn-amount">−2 340 ₽</span>
+              </li>
+              <li class="txn">
+                <span class="txn-icon txn-icon--income"><svg width="17" height="17" aria-hidden="true"><use href="#i-up-right"/></svg></span>
+                <span class="txn-info"><strong>Зарплата</strong><small>Поступление · 5 октября</small></span>
+                <span class="txn-amount txn-amount--in">+185 000 ₽</span>
+              </li>
+              <li class="txn">
+                <span class="txn-icon txn-icon--sub"><svg width="17" height="17" aria-hidden="true"><use href="#i-repeat"/></svg></span>
+                <span class="txn-info"><strong>Яндекс Плюс</strong><small>Подписка · 3 октября</small></span>
+                <span class="txn-amount">−399 ₽</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="float-card float-card--goal" aria-hidden="true">
+          <div class="float-head">
+            <span class="float-icon"><svg width="18" height="18"><use href="#i-target"/></svg></span>
+            <div><b>Цель: Отпуск</b><small>78% · ещё 82 000 ₽</small></div>
+          </div>
+          <div class="progress"><span style="width:78%"></span></div>
+        </div>
+
+        <div class="float-card float-card--cash" aria-hidden="true">
+          <span class="float-icon float-icon--gold"><svg width="18" height="18"><use href="#i-spark"/></svg></span>
+          <div><b>+1 240 ₽</b><small>кэшбэк за октябрь</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rates-band" aria-label="Демонстрационные рыночные показатели">
+      <div class="rates-track">
+        <div class="rates-group">
+          <span class="rate"><b>USD</b> 91,24 ₽ <em class="up">+0,32%</em></span>
+          <span class="rate"><b>EUR</b> 98,76 ₽ <em class="down">−0,18%</em></span>
+          <span class="rate"><b>CNY</b> 12,58 ₽ <em class="up">+0,11%</em></span>
+          <span class="rate"><b>BTC</b> $67 412 <em class="up">+1,84%</em></span>
+          <span class="rate"><b>Золото</b> 7 340 ₽ <em class="up">+0,64%</em></span>
+          <span class="rate"><b>IMOEX</b> 3 186 <em class="down">−0,42%</em></span>
+          <span class="rate"><b>Вклад</b> до 16,5% <em class="up">годовых</em></span>
+        </div>
+        <div class="rates-group" aria-hidden="true">
+          <span class="rate"><b>USD</b> 91,24 ₽ <em class="up">+0,32%</em></span>
+          <span class="rate"><b>EUR</b> 98,76 ₽ <em class="down">−0,18%</em></span>
+          <span class="rate"><b>CNY</b> 12,58 ₽ <em class="up">+0,11%</em></span>
+          <span class="rate"><b>BTC</b> $67 412 <em class="up">+1,84%</em></span>
+          <span class="rate"><b>Золото</b> 7 340 ₽ <em class="up">+0,64%</em></span>
+          <span class="rate"><b>IMOEX</b> 3 186 <em class="down">−0,42%</em></span>
+          <span class="rate"><b>Вклад</b> до 16,5% <em class="up">годовых</em></span>
+        </div>
+      </div>
+      <span class="rates-note">демо-данные</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section" aria-label="ФинПульс в цифрах">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat">
+          <span class="stat-value"><span class="num" data-count="120000" data-group="1">120 000</span><span class="stat-suffix">+</span></span>
+          <span class="stat-label">активных пользователей</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span class="num" data-count="4.8" data-decimals="1">4,8</span><span class="stat-suffix">млрд ₽</span></span>
+          <span class="stat-label">накоплений под контролем</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span class="num" data-count="4.9" data-decimals="1">4,9</span><span class="stat-suffix">/ 5</span></span>
+          <span class="stat-label">средняя оценка в сторах</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span class="num" data-count="40" data-group="1">40</span><span class="stat-suffix">+</span></span>
+          <span class="stat-label">банков в одном приложении</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section features" id="features">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Возможности</span>
+        <h2 class="reveal" style="--d:.06s">Один экран вместо<br>десяти приложений</h2>
+        <p class="section-lede reveal" style="--d:.12s">Соберите деньги в одном месте — и наконец увидите полную картину. Без Excel, скриншотов и вечных «потом посчитаю».</p>
+      </div>
+
+      <div class="bento">
+        <article class="feature-card feature-card--accounts reveal">
+          <div class="feature-icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-wallet"/></svg></div>
+          <h3>Все счета в одном месте</h3>
+          <p>Карты, вклады, накопительные счета и брокерский портфель синхронизируются автоматически. Полная картина обновляется каждые 15 минут.</p>
+          <ul class="account-list">
+            <li>
+              <span class="bank bank--s">С</span>
+              <span class="account-info"><b>Сбербанк •• 4521</b><small>Дебетовая карта</small></span>
+              <span class="account-amount">342 800 ₽</span>
+            </li>
+            <li>
+              <span class="bank bank--t">Т</span>
+              <span class="account-info"><b>Т-Банк •• 8810</b><small>Накопительный счёт</small></span>
+              <span class="account-amount">128 400 ₽</span>
+            </li>
+            <li>
+              <span class="bank bank--b">Б</span>
+              <span class="account-info"><b>Брокерский счёт</b><small>Инвестиции</small></span>
+              <span class="account-amount">813 300 ₽</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="feature-card feature-card--budget reveal" style="--d:.08s">
+          <div class="feature-icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-sliders"/></svg></div>
+          <h3>Умные бюджеты</h3>
+          <p>Лимиты по категориям с поправкой на ваши привычки. Предупредим до перерасхода, а не после.</p>
+          <div class="budget-bars">
+            <div class="budget-row">
+              <span>Продукты</span>
+              <span class="budget-track"><i style="--w:68%"></i></span>
+              <b>68%</b>
+            </div>
+            <div class="budget-row">
+              <span>Кафе</span>
+              <span class="budget-track"><i style="--w:42%;--c:#7C9BFF"></i></span>
+              <b>42%</b>
+            </div>
+            <div class="budget-row">
+              <span>Транспорт</span>
+              <span class="budget-track"><i style="--w:81%;--c:#F4C36A"></i></span>
+              <b>81%</b>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-trend"/></svg></div>
+          <h3>Инвестиции без тумана</h3>
+          <p>Портфель, доходность и риски — простым языком. Видно, сколько вы заработали после комиссий и налогов.</p>
+          <div class="spark-card">
+            <span class="spark-value">+23,8%</span>
+            <span class="spark-label">за 12 месяцев</span>
+            <svg class="sparkline" viewBox="0 0 220 64" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 54 C18 50 26 56 40 48 C58 38 66 44 82 36 C100 27 108 34 124 26 C142 17 150 24 166 16 C184 7 194 12 206 8 C212 6 216 5 220 4 L220 64 L0 64 Z" fill="rgba(55,233,168,.12)"/>
+              <path d="M0 54 C18 50 26 56 40 48 C58 38 66 44 82 36 C100 27 108 34 124 26 C142 17 150 24 166 16 C184 7 194 12 206 8 C212 6 216 5 220 4" fill="none" stroke="#37E9A8" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="feature-card reveal" style="--d:.08s">
+          <div class="feature-icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-target"/></svg></div>
+          <h3>Цели, которые сбываются</h3>
+          <p>Отпуск, ремонт или первый миллион — разложим цель на шаги и подключим автопополнение.</p>
+          <div class="goal-visual">
+            <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true">
+              <circle cx="48" cy="48" r="38" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="8"/>
+              <circle class="goal-ring" cx="48" cy="48" r="38" fill="none" stroke="#37E9A8" stroke-width="8" stroke-linecap="round" stroke-dasharray="238.76" stroke-dashoffset="52.5" transform="rotate(-90 48 48)"/>
+            </svg>
+            <div class="goal-copy">
+              <strong>78%</strong>
+              <span>Отпуск в Португалии</span>
+              <small>осталось 4 месяца</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card reveal" style="--d:.16s">
+          <div class="feature-icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-pie"/></svg></div>
+          <h3>Аналитика без воды</h3>
+          <p>30+ отчётов, сравнение месяцев и подписки, которые незаметно съедают бюджет.</p>
+          <div class="analytics">
+            <div class="analytics-bars" aria-hidden="true">
+              <span style="--h:42%"></span><span style="--h:58%"></span><span style="--h:36%"></span><span style="--h:72%"></span><span style="--h:54%"></span><span style="--h:88%"></span><span style="--h:66%"></span>
+            </div>
+            <div class="analytics-legend">
+              <span><i class="dot dot--mint"></i>Жильё</span>
+              <span><i class="dot dot--blue"></i>Еда</span>
+              <span><i class="dot dot--gold"></i>Развлечения</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card feature-card--security reveal">
+          <div class="feature-card-copy">
+            <div class="feature-icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-shield"/></svg></div>
+            <h3>Безопасность банковского уровня</h3>
+            <p>Подключение через Open Banking: мы никогда не видим пароли и не можем списать деньги. Все данные шифруются, доступ — только на чтение.</p>
+          </div>
+          <ul class="badges">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-lock"/></svg>AES-256</li>
+            <li>152-ФЗ</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-shield"/></svg>PCI DSS</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-lock"/></svg>Биометрия</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="section how" id="how">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow reveal">Как это работает</span>
+        <h2 class="reveal" style="--d:.06s">Три шага до ясности</h2>
+        <p class="section-lede reveal" style="--d:.12s">Настройка занимает меньше времени, чем дорога до кофейни. Дальше ФинПульс работает сам.</p>
+      </div>
+      <div class="steps">
+        <article class="step reveal">
+          <span class="step-num">01</span>
+          <h3>Подключите счета</h3>
+          <p>Выберите банк и подтвердите доступ прямо в его приложении. Без паролей, скриншотов и ручного ввода.</p>
+          <span class="step-meta">≈ 2 минуты</span>
+        </article>
+        <article class="step reveal" style="--d:.1s">
+          <span class="step-num">02</span>
+          <h3>Задайте цели и лимиты</h3>
+          <p>ФинПульс предложит бюджеты по вашим реальным тратам. Скорректируйте пару ползунков — и готово.</p>
+          <span class="step-meta">≈ 3 минуты</span>
+        </article>
+        <article class="step reveal" style="--d:.2s">
+          <span class="step-num">03</span>
+          <h3>Смотрите, как растёт капитал</h3>
+          <p>Каждую неделю — короткий отчёт: что изменилось, где перерасход и сколько осталось до цели.</p>
+          <span class="step-meta">1 письмо в неделю</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section calc" id="calc">
+    <div class="container">
+      <div class="calc-shell reveal">
+        <div class="calc-intro">
+          <span class="eyebrow">Калькулятор</span>
+          <h2>Сколько вы накопите?</h2>
+          <p>Подвиньте ползунки — и увидите, как ежемесячные небольшие взносы превращаются в капитал. Расчёт при 12% годовых с капитализацией процентов.</p>
+          <ul class="calc-notes">
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Сложный процент работает на вас</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Без комиссий и скрытых условий</li>
+          </ul>
+        </div>
+
+        <div class="calc-body">
+          <div class="calc-controls">
+            <div class="control">
+              <div class="control-head">
+                <label for="startInput">Первоначальный взнос</label>
+                <output id="startOut" for="startInput">300 000 ₽</output>
+              </div>
+              <input type="range" id="startInput" min="0" max="3000000" step="50000" value="300000" aria-describedby="calcHint">
+              <div class="control-scale"><span>0 ₽</span><span>3 млн ₽</span></div>
+            </div>
+
+            <div class="control">
+              <div class="control-head">
+                <label for="monthlyInput">Ежемесячное пополнение</label>
+                <output id="monthlyOut" for="monthlyInput">25 000 ₽</output>
+              </div>
+              <input type="range" id="monthlyInput" min="0" max="200000" step="5000" value="25000" aria-describedby="calcHint">
+              <div class="control-scale"><span>0 ₽</span><span>200 000 ₽</span></div>
+            </div>
+
+            <div class="control">
+              <div class="control-head">
+                <label for="yearsInput">Срок</label>
+                <output id="yearsOut" for="yearsInput">10 лет</output>
+              </div>
+              <input type="range" id="yearsInput" min="1" max="20" step="1" value="10" aria-describedby="calcHint">
+              <div class="control-scale"><span>1 год</span><span>20 лет</span></div>
+            </div>
+            <p class="calc-hint" id="calcHint">Пример расчёта. Не является инвестиционной рекомендацией или гарантией доходности.</p>
+          </div>
+
+          <div class="calc-result">
+            <span class="result-label">Ваш капитал через <b id="resultYears">10</b> лет</span>
+            <div class="result-total" id="calcTotal">₽ 6 480 005</div>
+            <div class="result-parts">
+              <div><span>Вложено вами</span><b id="calcInvested">₽ 3 300 000</b></div>
+              <div><span>Доход от процентов</span><b class="accent" id="calcIncome">₽ 3 180 005</b></div>
+            </div>
+            <div class="calc-bars" id="calcBars" aria-hidden="true"></div>
+            <a class="btn btn-primary btn-block" href="#start">Открыть накопительный счёт</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing" id="pricing">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow reveal">Тарифы</span>
+        <h2 class="reveal" style="--d:.06s">Честно и без звёздочек</h2>
+        <p class="section-lede reveal" style="--d:.12s">Начните бесплатно. Переходите на платный тариф, когда понадобится больше контроля.</p>
+        <div class="billing-toggle reveal" style="--d:.18s" role="group" aria-label="Период оплаты">
+          <button type="button" class="billing-btn is-active" data-billing="monthly" aria-pressed="true">Ежемесячно</button>
+          <button type="button" class="billing-btn" data-billing="annual" aria-pressed="false">За год <span class="save-badge">−20%</span></button>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="price-card reveal">
+          <div class="price-head">
+            <h3>Старт</h3>
+            <p>Чтобы попробовать и навести порядок в базовых тратах.</p>
+          </div>
+          <div class="price-amount"><span class="price-value" data-monthly="0" data-annual="0">0 ₽</span><span class="price-period">навсегда</span></div>
+          <a class="btn btn-secondary btn-block" href="#start">Начать бесплатно</a>
+          <ul class="price-features">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>До 2 подключённых счетов</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Базовые бюджеты по категориям</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Отчёты за последние 3 месяца</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Одна накопительная цель</li>
+          </ul>
+        </article>
+
+        <article class="price-card price-card--featured reveal" style="--d:.08s">
+          <span class="price-tag">Выбор 68% пользователей</span>
+          <div class="price-head">
+            <h3>Про</h3>
+            <p>Для тех, кто хочет контролировать всё и копить быстрее.</p>
+          </div>
+          <div class="price-amount"><span class="price-value" data-monthly="349" data-annual="279">349 ₽</span><span class="price-period" data-period>в месяц</span></div>
+          <a class="btn btn-primary btn-block" href="#start">Попробовать 14 дней</a>
+          <ul class="price-features">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Неограниченно счетов и карт</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Умные бюджеты и автокатегории</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Инвестиционный портфель</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Цели без ограничений</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Экспорт в CSV и Excel</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Поддержка в чате 7 дней в неделю</li>
+          </ul>
+        </article>
+
+        <article class="price-card reveal" style="--d:.16s">
+          <div class="price-head">
+            <h3>Премиум</h3>
+            <p>Личный финансовый план и семейный доступ.</p>
+          </div>
+          <div class="price-amount"><span class="price-value" data-monthly="899" data-annual="719">899 ₽</span><span class="price-period" data-period>в месяц</span></div>
+          <a class="btn btn-secondary btn-block" href="#start">Выбрать Премиум</a>
+          <ul class="price-features">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Всё из тарифа Про</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Семейный доступ до 5 человек</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Налоговый помощник и вычеты</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Персональный финансовый план</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Консультация эксперта раз в квартал</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Приоритетная поддержка 24/7</li>
+          </ul>
+        </article>
+      </div>
+      <p class="pricing-note reveal">Цены указаны в рублях. Отмена подписки — в один клик, без звонков и «оставьте заявку».</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Отзывы</span>
+        <h2 class="reveal" style="--d:.06s">Деньги снова<br>сходятся</h2>
+        <p class="section-lede reveal" style="--d:.12s">Реальные истории людей, которые перестали гадать, куда уходит зарплата.</p>
+      </div>
+
+      <div class="review-grid">
+        <article class="review-card reveal">
+          <svg class="quote-icon" width="30" height="30" aria-hidden="true"><use href="#i-quote"/></svg>
+          <div class="review-stars" aria-label="5 из 5">
+            <svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg>
+          </div>
+          <p class="review-text">«Раньше думала, что бюджет — это про запреты. Оказалось, это про спокойствие: я впервые знаю, что через месяц смогу оплатить отпуск и не залезу в кредитку».</p>
+          <div class="review-author">
+            <span class="review-avatar review-avatar--1">АК</span>
+            <span><b>Анна Ковалёва</b><small>дизайнер, Санкт-Петербург</small></span>
+          </div>
+        </article>
+
+        <article class="review-card review-card--accent reveal" style="--d:.08s">
+          <svg class="quote-icon" width="30" height="30" aria-hidden="true"><use href="#i-quote"/></svg>
+          <div class="review-stars" aria-label="5 из 5">
+            <svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg>
+          </div>
+          <p class="review-text">«Наконец вижу бизнес и личные деньги отдельно, а не «всё в одном котле». За полгода вывел из хаоса пять счетов и навёл порядок в налогах».</p>
+          <div class="review-author">
+            <span class="review-avatar review-avatar--2">ДМ</span>
+            <span><b>Дмитрий Морозов</b><small>предприниматель, Казань</small></span>
+          </div>
+        </article>
+
+        <article class="review-card reveal" style="--d:.16s">
+          <svg class="quote-icon" width="30" height="30" aria-hidden="true"><use href="#i-quote"/></svg>
+          <div class="review-stars" aria-label="5 из 5">
+            <svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg>
+          </div>
+          <p class="review-text">«За 8 месяцев закрыла кредитку и накопила на поездку — без аскезы и подсчёта каждой копейки. Просто вижу прогресс и не срываюсь».</p>
+          <div class="review-author">
+            <span class="review-avatar review-avatar--3">МС</span>
+            <span><b>Мария Соколова</b><small>врач, Екатеринбург</small></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container faq-layout">
+      <div class="faq-intro">
+        <span class="eyebrow reveal">Вопросы</span>
+        <h2 class="reveal" style="--d:.06s">Коротко о главном</h2>
+        <p class="section-lede reveal" style="--d:.12s">Не нашли ответ? Напишите нам — отвечаем в течение 15 минут, без ботов-заглушек.</p>
+        <a class="btn btn-secondary reveal" style="--d:.18s" href="#start">Задать вопрос</a>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1" id="faqBtn1">
+            <span>Это безопасно? Вы видите мои пароли?</span>
+            <span class="faq-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-plus"/></svg></span>
+          </button>
+          <div class="faq-answer" id="faq1" role="region" aria-labelledby="faqBtn1">
+            <div class="faq-answer-inner"><p>Нет. Подключение банка происходит через защищённый протокол Open Banking: вы вводите данные на стороне банка, а ФинПульс получает только доступ на чтение операций. Мы не можем переводить деньги, не видим пароли и не храним реквизиты карт в открытом виде.</p></div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="--d:.06s">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2" id="faqBtn2">
+            <span>Какие банки и счета поддерживаются?</span>
+            <span class="faq-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-plus"/></svg></span>
+          </button>
+          <div class="faq-answer" id="faq2" role="region" aria-labelledby="faqBtn2">
+            <div class="faq-answer-inner"><p>Более 40 банков: Сбербанк, Т-Банк, Альфа-Банк, ВТБ, Райффайзен, Газпромбанк, Открытие и другие. Поддерживаются дебетовые и кредитные карты, вклады, накопительные счета, а также брокерские счета крупнейших брокеров.</p></div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="--d:.12s">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3" id="faqBtn3">
+            <span>Есть ли бесплатный тариф и что в нём?</span>
+            <span class="faq-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-plus"/></svg></span>
+          </button>
+          <div class="faq-answer" id="faq3" role="region" aria-labelledby="faqBtn3">
+            <div class="faq-answer-inner"><p>Да, тариф «Старт» бесплатен навсегда: два счёта, базовые бюджеты, отчёты за три месяца и одна цель. Для большинства этого хватает, чтобы навести порядок в финансах. Расширенные функции — в «Про» и «Премиуме», и их можно попробовать 14 дней без оплаты.</p></div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="--d:.18s">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4" id="faqBtn4">
+            <span>Как вы зарабатываете, если тариф бесплатный?</span>
+            <span class="faq-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-plus"/></svg></span>
+          </button>
+          <div class="faq-answer" id="faq4" role="region" aria-labelledby="faqBtn4">
+            <div class="faq-answer-inner"><p>На платных подписках. Мы не продаём данные, не показываем рекламу финансовых продуктов и не передаём историю операций третьим лицам. Аналитика — только для вас.</p></div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="--d:.24s">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq5" id="faqBtn5">
+            <span>Можно ли экспортировать данные?</span>
+            <span class="faq-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-plus"/></svg></span>
+          </button>
+          <div class="faq-answer" id="faq5" role="region" aria-labelledby="faqBtn5">
+            <div class="faq-answer-inner"><p>Да. На тарифах «Про» и «Премиум» есть экспорт в CSV и Excel, а также выгрузка отчётов в PDF. Данные принадлежат вам — вы можете удалить аккаунт вместе со всей историей в любой момент.</p></div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="--d:.3s">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq6" id="faqBtn6">
+            <span>Это инвестиционная рекомендация?</span>
+            <span class="faq-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-plus"/></svg></span>
+          </button>
+          <div class="faq-answer" id="faq6" role="region" aria-labelledby="faqBtn6">
+            <div class="faq-answer-inner"><p>Нет. ФинПульс — информационный сервис для учёта и планирования. Расчёты в калькуляторе демонстрационные и не гарантируют доходность. Инвестиционные решения вы принимаете самостоятельно или с лицензированным советником.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section start" id="start">
+    <div class="container">
+      <div class="cta-panel reveal">
+        <div class="cta-glow" aria-hidden="true"></div>
+        <div class="cta-copy">
+          <span class="eyebrow eyebrow--light">Бесплатно и без карты</span>
+          <h2>Пусть деньги работают<br>по плану</h2>
+          <p>Подключите первый счёт за две минуты и получите личный финансовый план на год. Начните сегодня — результат заметите через месяц.</p>
+          <form class="signup-form" id="signupForm" novalidate>
+            <label class="visually-hidden" for="emailInput">Электронная почта</label>
+            <div class="form-row">
+              <input type="email" id="emailInput" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="formNote">
+              <button class="btn btn-dark" type="submit">Создать аккаунт</button>
+            </div>
+            <p class="form-note" id="formNote">Нажимая кнопку, вы соглашаетесь с <a href="#start">политикой конфиденциальности</a>. Спам не отправляем.</p>
+          </form>
+        </div>
+        <div class="cta-side">
+          <div class="cta-card">
+            <span class="cta-card-label">Личный план на год</span>
+            <div class="cta-card-value">+₽ 412 000</div>
+            <span class="cta-card-sub">потенциал накоплений</span>
+            <div class="cta-card-bars" aria-hidden="true">
+              <span style="--h:34%"></span><span style="--h:46%"></span><span style="--h:40%"></span><span style="--h:58%"></span><span style="--h:52%"></span><span style="--h:70%"></span><span style="--h:78%"></span><span style="--h:92%"></span>
+            </div>
+          </div>
+          <ul class="cta-list">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>14 дней «Про» бесплатно</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Без привязки карты</li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Отмена в один клик</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="ФинПульс — на главную">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" role="presentation"><rect width="32" height="32" rx="10" fill="url(#brandGradFooter)"/><path d="M9 21.5V15m7 6.5V10m7 11.5v-9" stroke="#04130D" stroke-width="2.6" stroke-linecap="round"/><defs><linearGradient id="brandGradFooter" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#4BF0B4"/><stop offset="1" stop-color="#19C8A4"/></linearGradient></defs></svg>
+          </span>
+          <span class="brand-name">ФинПульс</span>
+        </a>
+        <p>Личные финансы, которые наконец сходятся. Учёт, бюджеты, цели и инвестиции — в одном приложении.</p>
+        <div class="footer-social" aria-label="Социальные сети">
+          <a href="#start" aria-label="Telegram">TG</a>
+          <a href="#start" aria-label="VK">VK</a>
+          <a href="#start" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Продукт">
+        <h3>Продукт</h3>
+        <a href="#features">Возможности</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#calc">Калькулятор</a>
+        <a href="#reviews">Отзывы</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Компания">
+        <h3>Компания</h3>
+        <a href="#top">О нас</a>
+        <a href="#how">Как это работает</a>
+        <a href="#faq">Вопросы и ответы</a>
+        <a href="#start">Контакты</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Помощь">
+        <h3>Помощь</h3>
+        <a href="#faq">База знаний</a>
+        <a href="#start">Поддержка</a>
+        <a href="#start">Безопасность</a>
+        <a href="#start">Статус сервиса</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> ФинПульс. Демонстрационный проект. Все показатели и отзывы вымышлены.</p>
+      <div class="footer-legal">
+        <a href="#start">Политика конфиденциальности</a>
+        <a href="#start">Условия использования</a>
+        <a href="#top">Наверх ↑</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">Материалы сайта носят информационный характер и не являются индивидуальной инвестиционной рекомендацией. Доходность в прошлом не гарантирует доходность в будущем.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
