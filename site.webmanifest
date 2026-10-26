@@ -1,0 +1,19 @@
+{
+  "name": "ФинПульс — все деньги на одном экране",
+  "short_name": "ФинПульс",
+  "description": "41 банк и брокер в одной картине: лимиты, цели и короткий отчёт раз в неделю.",
+  "lang": "ru",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ]
+}

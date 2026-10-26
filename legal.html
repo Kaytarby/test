@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документы — ФинПульс</title>
+<meta name="description" content="Политика конфиденциальности, условия использования, безопасность и обработка данных демонстрационного сервиса ФинПульс.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css?v=3">
+<style>
+  .doc {
+    padding-block: var(--s-24) var(--s-20);
+  }
+
+  .doc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding-bottom: var(--s-6);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .doc h1 {
+    margin-top: var(--s-16);
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    max-width: 680px;
+    text-wrap: balance;
+  }
+
+  .doc-nav {
+    position: sticky;
+    top: 88px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+  }
+
+  .doc-nav a {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 20px;
+    transition: color var(--t-color);
+  }
+
+  .doc-nav a:hover {
+    color: var(--accent);
+  }
+
+  .doc-layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: var(--s-16);
+    margin-top: var(--s-12);
+    align-items: start;
+  }
+
+  .doc-body {
+    max-width: 720px;
+  }
+
+  .doc-body section {
+    padding-bottom: var(--s-10);
+    margin-bottom: var(--s-10);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .doc-body section:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .doc-body h2 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--s-4);
+    text-wrap: balance;
+  }
+
+  .doc-body p,
+  .doc-body li {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .doc-body p + p {
+    margin-top: var(--s-3);
+  }
+
+  .doc-body ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+    margin-top: var(--s-3);
+  }
+
+  .doc-body li {
+    display: flex;
+    gap: var(--s-2);
+  }
+
+  .doc-body li::before {
+    content: "—";
+    color: var(--accent);
+  }
+
+  .doc-updated {
+    color: var(--dim);
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: var(--s-4);
+  }
+
+  @media (min-width: 768px) {
+    .doc h1 {
+      font-size: 48px;
+      line-height: 1;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .doc-layout {
+      grid-template-columns: 1fr;
+      gap: var(--s-8);
+    }
+
+    .doc-nav {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--s-4);
+    }
+  }
+</style>
+</head>
+<body>
+<main class="container doc" id="main">
+  <div class="doc-head">
+    <a class="nav-brand" href="/" aria-label="ФинПульс, на главную">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M9 21.5V15m7 6.5V10m7 11.5v-9" stroke="#0a0d04" stroke-width="2.6" stroke-linecap="round"/></svg>
+      </span>
+      <span>ФинПульс</span>
+    </a>
+    <a class="btn btn-ghost btn-sm" href="/">На главную</a>
+  </div>
+
+  <h1>Документы сервиса</h1>
+  <p class="lead" style="margin-top: var(--s-4)">Ниже четыре документа. Это демонстрационный проект: тексты описывают правила гипотетического сервиса и не создают юридических обязательств.</p>
+  <p class="doc-updated mono">Обновлено 24 октября 2026</p>
+
+  <div class="doc-layout">
+    <nav class="doc-nav" aria-label="Документы">
+      <a href="#privacy">Политика конфиденциальности</a>
+      <a href="#terms">Условия использования</a>
+      <a href="#security">Безопасность</a>
+      <a href="#data">Обработка данных</a>
+    </nav>
+
+    <div class="doc-body">
+      <section id="privacy">
+        <h2>Политика конфиденциальности</h2>
+        <p>ФинПульс хранит только те данные, которые нужны для учёта финансов: название счёта, маскированный номер, баланс и историю операций. Мы не запрашиваем паспортные данные и не храним пароли от банковских приложений.</p>
+        <p>Данные не продаются и не передаются третьим лицам для маркетинга. Доступ к ним имеет только владелец аккаунта и, по его приглашению, участники семейного плана.</p>
+        <ul>
+          <li>Аккаунт и история удаляются в один клик из настроек.</li>
+          <li>Письма от сервиса отправляются только по теме аккаунта и отчётов.</li>
+          <li>Отказ от рассылки не влияет на работу приложения.</li>
+        </ul>
+      </section>
+
+      <section id="terms">
+        <h2>Условия использования</h2>
+        <p>ФинПульс это сервис учёта и планирования. Он не является банком, брокером или инвестиционным советником и не проводит платежи.</p>
+        <p>Тариф «Старт» бесплатен без ограничения срока. Тарифы «Про» и «Премиум» оплачиваются ежемесячно или за год; пробный период 14 дней можно отменить в любой момент до списания.</p>
+        <ul>
+          <li>Отмена подписки доступна в приложении, без обращения в поддержку.</li>
+          <li>Возврат за неиспользованный период рассчитывается пропорционально дням.</li>
+          <li>Расчёты на сайте демонстрационные и не гарантируют доходность.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>Безопасность</h2>
+        <p>Подключение банков идёт через Open Banking: вы подтверждаете доступ в приложении банка, ФинПульс получает токен только на чтение операций. Переводить деньги или менять лимиты через сервис невозможно.</p>
+        <p>Трафик шифруется по TLS 1.3, данные на диске защищены шифрованием AES-256. Вход поддерживает биометрию и двухфакторную аутентификацию.</p>
+      </section>
+
+      <section id="data">
+        <h2>Обработка данных</h2>
+        <p>Мы обрабатываем данные на серверах в Европейском союзе, срок хранения истории операций не ограничен, пока существует аккаунт. Экспорт доступен в CSV и Excel на тарифах «Про» и «Премиум».</p>
+        <p>Запрос на удаление аккаунта выполняется в течение 30 дней, включая резервные копии. Вопросы по данным: <a class="link link--sm" href="mailto:privacy@finpulse.app">privacy@finpulse.app</a>.</p>
+      </section>
+    </div>
+  </div>
+</main>
+</body>
+</html>

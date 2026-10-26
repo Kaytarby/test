@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Страница не найдена — ФинПульс</title>
+<meta name="description" content="Такой страницы нет. Вернитесь на главную ФинПульса.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css?v=3">
+<style>
+  .nf {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: var(--s-24);
+  }
+
+  .nf-code {
+    font-family: var(--mono);
+    font-size: 96px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+  }
+
+  .nf h1 {
+    margin-top: var(--s-6);
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    max-width: 680px;
+    text-wrap: balance;
+  }
+
+  .nf p {
+    margin-top: var(--s-4);
+    max-width: 480px;
+    color: var(--muted);
+  }
+
+  .nf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin-top: var(--s-8);
+  }
+
+  .nf-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-6);
+    margin-top: var(--s-12);
+    padding-top: var(--s-6);
+    border-top: 1px solid var(--line);
+  }
+
+  .nf-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: color var(--t-color);
+  }
+
+  .nf-links a:hover {
+    color: var(--accent);
+  }
+
+  @media (min-width: 768px) {
+    .nf-code {
+      font-size: 128px;
+    }
+
+    .nf h1 {
+      font-size: 48px;
+      line-height: 1;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="container nf" id="main">
+  <span class="nf-code mono">404</span>
+  <h1>Этой страницы нет, но деньги на месте</h1>
+  <p>Возможно, ссылка устарела. Вернитесь на главную или посмотрите, как ФинПульс собирает счета в одну картину.</p>
+  <div class="nf-actions">
+    <a class="btn btn-accent btn-lg" href="/">На главную</a>
+    <a class="btn btn-ghost btn-lg" href="/#how">Как это работает</a>
+  </div>
+  <nav class="nf-links" aria-label="Разделы сайта">
+    <a href="/#features">Возможности</a>
+    <a href="/#pricing">Тарифы</a>
+    <a href="/#faq">Вопросы</a>
+    <a href="/#proof">Результаты</a>
+  </nav>
+</main>
+</body>
+</html>
