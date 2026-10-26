@@ -68,6 +68,81 @@
     U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* ---------- Curtain ---------- */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: none;
+  place-items: center;
+  background: var(--bg);
+}
+
+.js .curtain {
+  display: grid;
+  animation: curtain-out 0.75s var(--ease) 0.5s forwards;
+}
+
+.curtain-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.curtain-mark {
+  display: block;
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  animation: curtain-mark 0.7s var(--ease) both;
+}
+
+.curtain-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.curtain-word {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: curtain-mark 0.7s var(--ease) 0.1s both;
+}
+
+.curtain-line {
+  display: block;
+  width: 96px;
+  height: 1px;
+  background: var(--line-2);
+  overflow: hidden;
+}
+
+.curtain-line i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left center;
+  animation: curtain-line 0.38s var(--ease) 0.06s both;
+}
+
+@keyframes curtain-out {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-101%); visibility: hidden; }
+}
+
+@keyframes curtain-mark {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes curtain-line {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
 /* ---------- Tokens ---------- */
 :root {
   --bg: #000000;
@@ -79,7 +154,7 @@
 
   --text: #ffffff;
   --muted: #9b9b9b;
-  --dim: #7d7d7d;
+  --dim: #8f8f8f;
 
   --accent: #d5ff4a;
   --accent-soft: #131209;
@@ -280,7 +355,7 @@ i {
 
 .display {
   font-size: 36px;
-  line-height: 1;
+  line-height: 1.04;
   font-weight: 700;
   letter-spacing: -0.045em;
   text-wrap: balance;
@@ -289,8 +364,8 @@ i {
 .display .line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.06em;
-  margin-bottom: -0.06em;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
 }
 
 .display .line > span {
@@ -742,8 +817,8 @@ i {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: var(--s-16);
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: var(--s-12);
   align-items: center;
 }
 
@@ -3394,6 +3469,10 @@ i {
 
   .cursor {
     display: none;
+  }
+
+  .curtain {
+    display: none !important;
   }
 }
 

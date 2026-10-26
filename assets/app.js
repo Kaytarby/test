@@ -7,6 +7,7 @@
   "use strict";
 
   var root = document.documentElement;
+  root.setAttribute("data-app", "ready");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var finePointer = window.matchMedia("(pointer: fine)").matches;
   var nf = new Intl.NumberFormat("ru-RU");
@@ -256,7 +257,10 @@
 
   function setMenu(open) {
     if (!menu || !menuToggle) return;
+    if (menu.classList.contains("is-open") === open) return;
+
     menu.hidden = false;
+    void menu.offsetHeight; // даём браузеру кадр, чтобы сработал переход
     menu.classList.toggle("is-open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
     menuToggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
@@ -287,9 +291,30 @@
       if (e.target.closest("a")) setMenu(false);
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && menu.classList.contains("is-open")) {
+      if (!menu.classList.contains("is-open")) return;
+
+      if (e.key === "Escape") {
         setMenu(false);
         if (menuToggle) menuToggle.focus({ preventScroll: true });
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      var focusables = $$("a[href], button", menu).filter(function (el) {
+        return el.offsetParent !== null;
+      });
+      if (!focusables.length) return;
+
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus({ preventScroll: true });
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus({ preventScroll: true });
       }
     });
   }
@@ -415,9 +440,22 @@
       window.setTimeout(function () {
         var ok = document.createElement("p");
         ok.className = "form-ok";
-        ok.innerHTML =
-          '<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg>' +
-          "<span>Ссылка для входа отправлена на " + value + ". Проверьте почту в течение минуты.</span>";
+
+        var icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        icon.setAttribute("class", "icon");
+        icon.setAttribute("width", "18");
+        icon.setAttribute("height", "18");
+        icon.setAttribute("aria-hidden", "true");
+        var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+        use.setAttribute("href", "#i-check");
+        icon.appendChild(use);
+
+        var message = document.createElement("span");
+        message.textContent =
+          "Ссылка для входа отправлена на " + value + ". Проверьте почту в течение минуты.";
+
+        ok.appendChild(icon);
+        ok.appendChild(message);
 
         form.hidden = true;
         form.parentNode.insertBefore(ok, form);

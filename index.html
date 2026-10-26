@@ -16,21 +16,41 @@
 <meta property="og:image" content="https://finpulse-landing.vercel.app/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ФинПульс: заголовок «Все деньги на одном экране» и макет дашборда с общим балансом ₽ 1 284 500">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ФинПульс — все деньги на одном экране">
 <meta name="twitter:description" content="41 банк и брокер в одной картине. Лимиты, цели и отчёт раз в неделю.">
 <meta name="twitter:image" content="https://finpulse-landing.vercel.app/assets/og.png">
+<meta name="twitter:image:alt" content="ФинПульс: все деньги на одном экране">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/styles.css">
-<script>document.documentElement.classList.replace('no-js','js');</script>
+<script>
+  document.documentElement.classList.replace('no-js', 'js');
+  // Страховка: если app.js не загрузился, раскрываем контент без анимаций.
+  window.setTimeout(function () {
+    if (!document.documentElement.hasAttribute('data-app')) {
+      document.documentElement.classList.remove('js');
+    }
+  }, 3500);
+</script>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain-inner">
+    <span class="curtain-mark">
+      <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M9 21.5V15m7 6.5V10m7 11.5v-9" stroke="#0a0d04" stroke-width="2.6" stroke-linecap="round"/></svg>
+    </span>
+    <span class="curtain-word">ФинПульс</span>
+    <span class="curtain-line"><i></i></span>
+  </div>
+</div>
 
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
   <symbol id="i-target" viewBox="0 0 256 256"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></symbol>
