@@ -2501,15 +2501,14 @@ input[type="range"]:active::-webkit-slider-thumb {
 /* ---------- Reveal animations ---------- */
 .js .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  translate: 0 22px;
+  transition: opacity 0.7s var(--ease), translate 0.7s var(--ease);
   transition-delay: var(--d, 0s);
-  will-change: opacity, transform;
 }
 
 .js .reveal.is-visible {
   opacity: 1;
-  transform: none;
+  translate: 0 0;
 }
 
 /* ---------- Responsive ---------- */
@@ -2804,7 +2803,7 @@ input[type="range"]:active::-webkit-slider-thumb {
   }
 
   .chart-tooltip {
-    padding: 5px 8px;
+    display: none;
   }
 
   .stats-grid {
@@ -2908,7 +2907,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
   .js .reveal {
     opacity: 1;
-    transform: none;
+    translate: none;
   }
 
   .chart-line {
